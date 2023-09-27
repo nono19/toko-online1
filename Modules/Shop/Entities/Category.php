@@ -4,10 +4,11 @@ namespace Modules\Shop\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\UuidTrait;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, UuidTrait;
 
     protected $table = 'shop_categories';
     protected $fillable = [ 'parent_id', 'slug', 'name' ];

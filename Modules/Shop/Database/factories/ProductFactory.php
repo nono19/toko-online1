@@ -31,7 +31,7 @@ class ProductFactory extends Factory
             'slug'          => Str::slug($name),
             'price'         => fake()->randomFloat,
             'status'        => Product::ACTIVE,
-            'publish_data'  => now(),
+            'publish_date'  => now(),
             'excerpt'       => fake()->text(),
             'body'          => fake()->text(),
         ];

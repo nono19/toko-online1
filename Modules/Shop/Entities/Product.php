@@ -79,7 +79,7 @@ class Product extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany('Modules\Shop\Entities\Tag', 'shop_categories_tags', 'product_id', 'tag_id');
+        return $this->belongsToMany('Modules\Shop\Entities\Tag', 'shop_products_tags', 'product_id', 'tag_id');
     }
 
     public function attributes(){

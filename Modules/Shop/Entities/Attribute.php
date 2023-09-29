@@ -50,7 +50,7 @@ class Attribute extends Model
                 self::create([
                     'code' => $code,
                     'name' => $name,
-                    'attribute_type' => self::defaultAttributeTypes()[$code]
+                    'attribute_type' => self::defaultAttributesTypes()[$code]
                 ]);
             }
         }

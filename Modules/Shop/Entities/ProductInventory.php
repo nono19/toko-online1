@@ -11,7 +11,7 @@ class ProductInventory extends Model
 {
     use HasFactory, UuidTrait;
 
-    protected $table = 'shop_product_invetories';
+    protected $table = 'shop_product_inventories';
     protected $fillable = [
         'product_id',
         'qty',

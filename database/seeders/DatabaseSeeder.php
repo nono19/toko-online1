@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Modules\Shop\Database\Seeders\ShopDatabaseSeeder;
 
@@ -25,6 +27,11 @@ class DatabaseSeeder extends Seeder
             $this->command->info('Data cleared, start from blank database');
         };
 
-        $this->call(ShopDatabaseSeeder::class);
+        User::factory()->create();
+        $this->command->info('sample user seeded');
+
+        if($this->command->confirm('Do you want to seed sample product ??')){
+            $this->call(ShopDatabaseSeeder::class);
+        };
     }
 }

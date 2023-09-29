@@ -3,6 +3,9 @@
 namespace Modules\Shop\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Shop\Entities\Product;
+
+use Illuminate\Support\Str;
 
 class ProductFactory extends Factory
 {
@@ -20,8 +23,17 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $name = fake()->word(2, true);
         return [
-            //
+            'sku'           => fake()->isbn10,
+            'type'          => Product::SIMPLE,
+            'name'          => $name,
+            'slug'          => Str::slug($name),
+            'price'         => fake()->randomFloat,
+            'status'        => Product::ACTIVE,
+            'publish_data'  => now(),
+            'excerpt'       => fake()->text(),
+            'body'          => fake()->text(),
         ];
     }
 }

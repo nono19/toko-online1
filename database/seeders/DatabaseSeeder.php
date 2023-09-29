@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Modules\Shop\Database\Seeders\ShopDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        if($this->command->confirm('Do you want to refresh migration before seeding ???')){
+            $this->command->call('migrate:refresh');
+            $this->command->info('Data cleared, start from blank database');
+        };
+
+        $this->call(ShopDatabaseSeeder::class);
     }
 }
